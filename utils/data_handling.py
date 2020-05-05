@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 import h5py
-
+import torch.nn as nn
 import numpy as np
 
 
@@ -75,7 +75,7 @@ class WCH5Dataset(Dataset):
 
     def __getitem__(self,index):
         if self.transform is None:
-            return np.array(self.event_data[index,:]),  self.labels[index], self.energies[index]
+            return np.array(self.event_data[index,:].flatten()),  self.labels[index], self.energies[index]
         else:
             return self.transform(np.array(self.event_data[index,:])),  self.labels[index], self.energies[index]
 

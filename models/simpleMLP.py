@@ -29,7 +29,6 @@ class SimpleMLP(nn.Module):
     # Forward pass
     
     def forward(self, x):
-        
         # Fully-connected layers
         x = self.relu(self.fc1(x))
         x = self.relu(self.fc2(x))
